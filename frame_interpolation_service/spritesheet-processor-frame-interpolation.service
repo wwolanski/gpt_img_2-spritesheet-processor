@@ -1,0 +1,18 @@
+[Unit]
+Description=Spritesheet processor Practical-RIFE frame interpolation service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=__SERVICE_ROOT__
+Environment=RIFE_MODEL_PATH=__SERVICE_ROOT__/models/Practical-RIFE/train_log
+Environment=RIFE_DEVICE=cuda
+Environment=RIFE_HALF=0
+Environment=RIFE_HOST=127.0.0.1
+Environment=RIFE_PORT=8775
+ExecStart=__PYTHON_BIN__ -m uvicorn app.main:app --host 127.0.0.1 --port 8775
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

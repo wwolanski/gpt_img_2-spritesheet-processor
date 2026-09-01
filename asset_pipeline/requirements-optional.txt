@@ -1,0 +1,7 @@
+# Optional local-model integrations. Install this file only when these features are used.
+-r requirements-core.txt
+# Last release compatible with the base pipeline's NumPy 1.x stack.
+rembg==2.0.60
+onnxruntime==1.18.0
+aura-sr==0.0.4
+openai==2.11.0

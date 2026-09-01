@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "presets": [
+    {
+      "name": "example-wing-edit",
+      "updatedAt": "2026-01-01T00:00:00Z",
+      "settings": {
+        "semanticInputMode": "neutral_matte",
+        "semanticGroundingMinConfidence": 0.35,
+        "semanticGroundingAlphaCutoff": 10,
+        "semanticGroundingDilationRadius": 2,
+        "semanticGroundingAllowFrameReassign": true,
+        "semanticGroundingFrameMinScore": 0.08,
+        "semanticGroundingProjectionMode": "by_persistence",
+        "semanticGroundingExpandRatio": 0.08,
+        "semanticGroundingExpandMinPx": 2.0,
+        "semanticGroundingEmitBbox": true,
+        "semanticGroundingEmitPositivePoint": true,
+        "semanticMaskModel": "sam3",
+        "semanticEditorParts": [
+          {
+            "id": "wings",
+            "label": "wings",
+            "prompt": "transparent wings",
+            "mobility": "high",
+            "persistence": "always",
+            "edits": []
+          }
+        ]
+      }
+    }
+  ]
+}

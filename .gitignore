@@ -1,0 +1,46 @@
+# Python environments, caches and build artifacts
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+build/
+
+# Node.js dependencies, caches and build artifacts
+node_modules/
+dist/
+.vite/
+
+# Local environment overrides; keep tracked .env.example templates
+.env
+.env.*
+!.env.example
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+
+# Local runtime state, logs and process files
+.runtime/
+tmp/
+*.log
+*.pid
+
+# Downloaded model weights are local runtime assets, not source files.
+frame_interpolation_service/models/Practical-RIFE/
+
+# Runtime output; approved exports can be copied elsewhere when needed.
+asset_pipeline/workbench/previews/
+asset_pipeline/workbench/exports/
+client/public/assets/generated/

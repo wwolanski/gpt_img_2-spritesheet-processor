@@ -1,0 +1,4 @@
+# Deterministic CPU dependencies for the base asset pipeline.
+Pillow==12.3.0
+numpy==1.26.4
+opencv-python-headless==4.10.0.84

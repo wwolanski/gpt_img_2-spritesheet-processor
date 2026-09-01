@@ -1,0 +1,140 @@
+[
+  {
+    "id": "key-detect",
+    "label": "Key detect",
+    "description": "Detect source key color.",
+    "configurable": false
+  },
+  {
+    "id": "chroma-mask",
+    "label": "Chroma mask",
+    "description": "HSV green-screen alpha mask.",
+    "configurable": false
+  },
+  {
+    "id": "distance-mask",
+    "label": "Distance mask",
+    "description": "Legacy RGB distance alpha mask.",
+    "configurable": false
+  },
+  {
+    "id": "pixel-mask",
+    "label": "Pixel mask",
+    "description": "Hard alpha mask for pixel art.",
+    "configurable": false
+  },
+  {
+    "id": "rembg-mask",
+    "label": "Rembg mask",
+    "description": "Optional AI mask fused with chroma mask.",
+    "configurable": true
+  },
+  {
+    "id": "despill",
+    "label": "Despill",
+    "description": "Neutralize green edge spill.",
+    "configurable": true
+  },
+  {
+    "id": "outline",
+    "label": "Outline",
+    "description": "Compose dark outline around alpha edge.",
+    "configurable": true
+  },
+  {
+    "id": "alpha-cleanup",
+    "label": "Alpha cleanup",
+    "description": "Remove tiny alpha islands and optional pinholes before frame detection.",
+    "configurable": true
+  },
+  {
+    "id": "frame-detect",
+    "label": "Frame detect",
+    "description": "Find animation frame components.",
+    "configurable": false
+  },
+  {
+    "id": "semantic-input",
+    "label": "Semantic input",
+    "description": "Build the RGB frame variant used by Qwen3 and the semantic mask model.",
+    "configurable": false
+  },
+  {
+    "id": "semantic-propose",
+    "label": "Semantic propose",
+    "description": "Ask local VLM for part specs when semantic mode is enabled.",
+    "configurable": true
+  },
+  {
+    "id": "frame-interpolate",
+    "label": "Frame interpolate 2x",
+    "description": "Insert Practical-RIFE midpoint frames after Qwen3 interpretation and before semantic grounding/SAM3.",
+    "configurable": true
+  },
+  {
+    "id": "semantic-grounding",
+    "label": "Semantic grounding",
+    "description": "Transform Qwen grounding hints into explicit SAM3 bbox and point edits.",
+    "configurable": true
+  },
+  {
+    "id": "part-segment-track",
+    "label": "Part segment track",
+    "description": "Send semantic RGB frame crops to the semantic service.",
+    "configurable": true
+  },
+  {
+    "id": "part-mask-validate",
+    "label": "Part mask validate",
+    "description": "Clip semantic masks to base alpha and reject invalid part masks.",
+    "configurable": true
+  },
+  {
+    "id": "part-stabilize",
+    "label": "Part stabilize",
+    "description": "Apply mobility-aware local temporal repair for semantic parts.",
+    "configurable": true
+  },
+  {
+    "id": "geometry-stabilize",
+    "label": "Geometry stabilize",
+    "description": "Align frames by alpha centroid and bottom anchor to reduce sprite wobble.",
+    "configurable": true
+  },
+  {
+    "id": "sheet-build",
+    "label": "Sheet build",
+    "description": "Normalize frames into output sheet.",
+    "configurable": false
+  },
+  {
+    "id": "flow-deflicker",
+    "label": "Flow deflicker",
+    "description": "Warp neighboring frames with optical flow and blend only consistent pixels.",
+    "configurable": true
+  },
+  {
+    "id": "temporal-deflicker",
+    "label": "Temporal deflicker",
+    "description": "Blend stable pixels toward their temporal median to reduce AI shimmer.",
+    "configurable": true
+  },
+  {
+    "id": "edge-extrude",
+    "label": "Edge extrude",
+    "description": "Copy edge RGB into transparent padding to prevent texture bleed.",
+    "configurable": true
+  },
+  {
+    "id": "upscale",
+    "label": "Upscale",
+    "description": "Optional nearest/AuraSR upscale.",
+    "configurable": true
+  },
+  {
+    "id": "metrics",
+    "label": "Metrics",
+    "description": "Evaluate output quality metrics.",
+    "configurable": false
+  }
+]

@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check shell scripts
+        run: bash -n setup_venv.sh start.sh status.sh stop.sh frame_interpolation_service/*.sh sam3_service/*.sh
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: asset_pipeline/requirements-dev.txt
+      - run: python -m pip install -r asset_pipeline/requirements-dev.txt
+      - run: python asset_pipeline/pipeline_tool.py validate-config
+      - run: python -m ruff check asset_pipeline frame_interpolation_service/app frame_interpolation_service/tests sam3_service/app semantic_client
+      - run: python -m ruff format --check asset_pipeline frame_interpolation_service/app frame_interpolation_service/tests sam3_service/app semantic_client
+      - run: python -m pytest asset_pipeline/tests -q --cov=asset_pipeline --cov-report=term-missing
+
+  rife-runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: frame_interpolation_service/requirements-dev.txt
+      - run: python -m pip install -r frame_interpolation_service/requirements-dev.txt
+      - run: python -m pytest tests -q
+        working-directory: frame_interpolation_service
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: asset_pipeline/requirements-core.txt
+      - name: Install Python runtime dependencies used by API middleware tests
+        working-directory: .
+        run: python -m pip install -r asset_pipeline/requirements-core.txt
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: client/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run test:run
+      - run: npm run build

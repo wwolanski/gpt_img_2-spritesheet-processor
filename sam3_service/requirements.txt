@@ -1,0 +1,10 @@
+-r ../asset_pipeline/requirements-core.txt
+torch==2.4.0
+torchvision==0.19.0
+fastapi==0.115.0
+uvicorn[standard]==0.30.0
+ultralytics==8.3.237
+transformers==4.57.3
+timm==1.0.29
+safetensors==0.4.5
+git+https://github.com/ultralytics/CLIP.git@488e81a6711eea7346872b46ea928b367da8889d#egg=clip

@@ -1,0 +1,3 @@
+-r ../asset_pipeline/requirements-core.txt
+pydantic==2.9.2
+pytest==9.0.3

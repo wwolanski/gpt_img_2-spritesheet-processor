@@ -1,0 +1,32 @@
+{
+  "id": "distance-classic",
+  "label": "Distance Classic",
+  "description": "Legacy RGB distance mask. Useful as control variant.",
+  "profileHint": "outline",
+  "stages": [
+    { "id": "key-detect", "included": true },
+    { "id": "chroma-mask", "included": false },
+    { "id": "distance-mask", "included": true },
+    { "id": "pixel-mask", "included": false },
+    { "id": "rembg-mask", "included": false },
+    { "id": "despill", "included": true },
+    { "id": "outline", "included": false },
+    { "id": "alpha-cleanup", "included": true },
+    { "id": "frame-detect", "included": true },
+    { "id": "semantic-input", "included": true },
+    { "id": "semantic-propose", "included": true },
+    { "id": "frame-interpolate", "included": true },
+    { "id": "semantic-grounding", "included": true },
+    { "id": "part-segment-track", "included": true },
+    { "id": "part-mask-validate", "included": false },
+    { "id": "part-stabilize", "included": false },
+    { "id": "geometry-stabilize", "included": true },
+    { "id": "sheet-build", "included": true },
+    { "id": "flow-deflicker", "included": true },
+    { "id": "temporal-deflicker", "included": false },
+    { "id": "edge-extrude", "included": true },
+    { "id": "upscale", "included": false },
+    { "id": "metrics", "included": true }
+  ],
+  "optionOverrides": {}
+}
